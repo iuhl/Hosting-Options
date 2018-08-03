@@ -134,3 +134,8 @@ docker run --rm --name mysql -it -v /docker/mysql/data/:/var/lib/mysql -e MYSQL_
 
 docker run --name mysqlserver -v /docker/mysql/data/:/var/lib/mysql -v /docker/mysql/my.cnf:/etc/mysql/my.cnf --privileged=true  -e MYSQL_ROOT_PASSWORD=titlis123 -d  mysql:5.7
 
+
+
+Redis安装
+下载：docker pull redis
+运行：docker run -p 6379:6379 --privileged=true -d  -v /redis/data:/data redis --appendonly yes (启动持久化数据)
