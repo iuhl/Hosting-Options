@@ -1,0 +1,17 @@
+Redis安装
+下载：docker pull redis
+运行：docker run -p 6379:6379 --privileged=true -d  -v /redis/data:/data redis --appendonly yes (启动持久化数据)
+
+
+Rabbit安装（包括管理端）
+下载：docker pull rabbit:3.7-management
+运行：docker run -d  -p 5671:5671 -p 5672:5672  -p 15672:15672 -p 15671:15671  -p 25672:25672   --name rabbitmq   rabbitmq:3.7-management
+
+
+Mysql安装
+下载：docker pull mysql
+操作：
+docker run --rm --name mysql -it -v /docker/mysql/data/:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456  mysql /bin/bash
+拷贝配置文件：cp /etc/mysql/my.cnf /var/lib/mysql（方便之后修改）
+退出：exit
+启动容器：docker run -d --name mysql -p 3306:3306 -v /Users/mac/docker/mysql/data/:/var/lib/mysql  -v /Users/mac/docker/mysql/my.cnf -e MYSQL_ROOT_PASSWORD=123456  mysql
